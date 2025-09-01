@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div>
+    <h1 class="text-2xl font-bold">문제1</h1>
+    <div id="textbox"></div>
+  </div>
+  <br>
+  <h1 class="text-2xl font-bold">문제2</h1>
+  <div class="grid grid-cols-2 gap-4">
+
+    <div id="predict">
+      <h1 class="text-xl font-bold">예상</h1>
+      <p data-exp="20+30">20 + 30 -> num + num -> 50</p>
+      <p data-exp="'20'+'30'">"20" + "30" -> s + s -> 2030</p>
+      <p data-exp="'Hello'+' '+2021">"Hello" + " "+ 2021 -> s + s + num -> 숫자형태의 s이 아니면 그냥 붙임 ->
+        Hello 2021</p>
+      <p data-exp="1+2*3">1 + 2 * 3 -> 곱하기 먼저 -> 7</p>
+      <p data-exp="(1+3)**2">(1+3)**2 -> 제곱 -> 16</p>
+      <p data-exp="1/0">1 / 0 -> 몫 -> infinity</p>
+      <p data-exp="6%2">6 % 2 -> 나머지 -> 0</p>
+      <p data-exp="7.5%2">7.5 % 2 -> 1.5</p>
+      <p data-exp="5 == 5">5 == 5 -> 타입 값 같음 -> true</p>
+      <p data-exp="5 === 5">5 === 5 -> 타입 값 같음 -> true</p>
+      <p data-exp="5 == '5'">5 == "5" -> 타입 다름 자동 형 변환 -> 값 같음 -> true</p>
+      <p data-exp="5 === '5'">5 === "5" -> 엄격한 비교(타입, 값) 타입 다름 -> false</p>
+      <p data-exp="5 != 5.0">5 != 5.0 -> 실수 정수 구분x : number타입 -> false</p>
+      <p data-exp="5 !== 5.0">5 !== 5.0 -> 타입 값 같음 -> false</p>
+      <p data-exp="'true' === true">"true" === true -> string boolean 타입이 다름 -> false</p>
+      <p data-exp="5 <= 5.0">5 <= 5.0 -> true</p>
+      <p data-exp="5 >= 5">5 >= 5 -> true</p>
+      <p data-exp="true || true">true || true -> or 하나라도 참이면 참 -> true</p>
+      <p data-exp="true || false">true || false -> true</p>
+      <p data-exp="true && true">true && true -> 둘다 true 일때만 true -> true</p>
+      <p data-exp="true && false">true && false -> false</p>
+      <p data-exp="!true">!true -> not 반대 -> false</p>
+      <p data-exp="!false">!false -> true</p>
+    </div>
+    <div id="result">
+      <h1 class="text-xl font-bold">결과</h1>
+    </div>
+  </div>
+  <br>
+  <div>
+    <h1 class="text-2xl font-bold">또잉??</h1>
+    <h2 class="text-xl font-bold">new Function : 문자를 코드로!</h2>
+    <p>const calc = new Function('a', 'b', 'return a + b');
+    </p>
+    <p>함수를 동적으로 생성할 수 있다
+    </p>
+    <p>첫 번째부터 n-1번째 인자는 매개변수 이름
+    </p>
+    <p>마지막 인자는 함수 본문
+    </p>
+    <p>eval()과 비슷하지만 함수 스코프 안에서만 실행돼서 더 안전함
+    </p>
+    <p>주로 계산기, DSL, 동적 코드 실행 등에 사용</p>
+    <h2 class="text-xl font-bold">createElement : HTML 태그를 자바스크립트로 만들기!?</h2>
+    <p>const p = document.createElement('p');
+    </p>
+    <p>p.textContent = '안녕 진혁!';
+    </p>
+    <p>HTML 태그를 자바스크립트로 생성함
+    </p>
+    <p>document.createElement('태그명') 형식
+    </p>
+    <p>생성만 하고 화면에 보이진 않음 → 변수에 저장 필요</p>
+    <h2 class="text-xl font-bold">appendChild : 만든 태그를 화면에 붙이기???</h2>
+    <p>document.body.appendChild(p);
+    </p>
+    <p>createElement()로 만든 태그를 DOM에 추가함
+    </p>
+    <p>부모.appendChild(자식) 형식
+    </p>
+    <p>실제로 화면에 보이게 만드는 단계</p>
+    <p>appendChild()는 노드만 추가 가능
+    </p>
+    <p>
+      append()는 노드 + 문자열도 추가 가
+    </p>
+    <p>파이썬에서는 append는 list 함수인데</p>
+    <p>js에서는 DOM 조작 매서드군요?</p>
+    <h2 class="text-xl font-bold">data-exp : HTML의 커스텀 데이터 속성 중 하나</h2>
+    <p>
+    <div data-exp="2025-09-01">진혁의 경험치</div>
+    </p>
+    <p>data-exp는 "exp"라는 이름의 사용자 정의 데이터 속성
+    </p>
+    <p>값은 "2025-09-01"이라는 문자열
+    </p>
+    <p>브라우저엔 안 보이지만, 자바스크립트로 꺼내 쓸 수 있다
+    </p>
+    <p>const div = document.querySelector('div');</p>
+    <p>console.log(div.dataset.exp); // "2025-09-01"</p>
+    <p>변수 div에 저장된 값은 DOM 요소 객체이고 그 객체 안에 객체면서 프로피티인 dataset이 있다</p>
+    <p>exp는 dataset의 프로퍼티다 -> 닷으로 접근 가능</p>
+    <p>DOM 요소 객체 -> js가 태그 하나하나를 객체로 인식</p>
+
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
