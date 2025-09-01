@@ -1,4 +1,5 @@
-📚 개념 정리
+#📚 개념 정리
+
 ✨ new Function : 문자를 코드로!
 ```jsx
 const calc = new Function('a', 'b', 'return a + b');
